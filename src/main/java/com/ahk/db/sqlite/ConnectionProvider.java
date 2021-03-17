@@ -1,5 +1,9 @@
 package com.ahk.db.sqlite;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -10,6 +14,10 @@ public class ConnectionProvider {
     public static Connection getInstance() {
         if (conn == null) {
             try {
+                if(!new File("./db/hugin.db").exists()){
+                    Path path = Paths.get("./db/");
+                    Files.createDirectories(path);
+                }
                 String url = "jdbc:sqlite:./db/hugin.db";
                 conn = DriverManager.getConnection(url);
                 String sql = "CREATE TABLE IF NOT EXISTS products (\n"
