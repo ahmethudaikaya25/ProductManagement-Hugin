@@ -17,13 +17,13 @@ import java.util.ResourceBundle;
 
 public class BaseCenterController implements Initializable {
     @FXML
-    TableView<ProductTableModel> productsTV;
+    public TableView<ProductTableModel> productsTV;
     @FXML
-    TableColumn<ProductTableModel, Integer> productsIdTC, productsValTC;
+    public TableColumn<ProductTableModel, Integer> productsIdTC, productsValTC;
     @FXML
-    TableColumn<ProductTableModel,String> productsNameTC, productsBarcodeTC;
+    public TableColumn<ProductTableModel,String> productsNameTC, productsBarcodeTC;
     @FXML
-    TableColumn<ProductTableModel,Float> productsPriceTC;
+    public TableColumn<ProductTableModel,Float> productsPriceTC;
 
 
     public void saveButtonAction() {
@@ -42,14 +42,17 @@ public class BaseCenterController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         productsTV.setVisible(false);
 
-        Thread thread =
+   /*     Thread thread =
                 new Thread(new FillProductTable(
                         this.productsTV
                         ,productsIdTC
                         ,productsValTC
                         ,productsNameTC
                         ,productsBarcodeTC
-                        ,productsPriceTC));
+                        ,productsPriceTC));*/
+        Thread thread =
+                new Thread(new FillProductTable(
+                        this));
         thread.start();
 
     }

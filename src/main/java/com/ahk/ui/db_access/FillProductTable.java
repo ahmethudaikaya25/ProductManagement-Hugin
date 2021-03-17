@@ -3,6 +3,7 @@ package com.ahk.ui.db_access;
 import com.ahk.data.Product;
 import com.ahk.data.ProductTableModel;
 import com.ahk.db.sqlite.ProductDBManager;
+import com.ahk.ui.controller.BaseCenterController;
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.value.ObservableValue;
@@ -26,16 +27,13 @@ public class FillProductTable implements Runnable {
     TableColumn<ProductTableModel, String> productsBarcodeTC;
     TableColumn<ProductTableModel, Float> productsPriceTC;
 
-    public FillProductTable(TableView<ProductTableModel> tv, TableColumn<ProductTableModel, Integer> productsIdTC
-            , TableColumn<ProductTableModel, Integer> productsValTC, TableColumn<ProductTableModel, String> productsNameTC,
-                            TableColumn<ProductTableModel, String> productsBarcodeTC,
-                            TableColumn<ProductTableModel, Float> productsPriceTC) {
-        this.tv = tv;
-        this.productsIdTC = productsIdTC;
-        this.productsValTC = productsValTC;
-        this.productsNameTC = productsNameTC;
-        this.productsBarcodeTC = productsBarcodeTC;
-        this.productsPriceTC = productsPriceTC;
+    public FillProductTable(BaseCenterController base) {
+        this.tv = base.productsTV;
+        this.productsIdTC = base.productsIdTC;
+        this.productsValTC = base.productsValTC;
+        this.productsNameTC = base.productsNameTC;
+        this.productsBarcodeTC = base.productsBarcodeTC;
+        this.productsPriceTC = base.productsPriceTC;
     }
 
 
@@ -69,7 +67,6 @@ public class FillProductTable implements Runnable {
                                 product.getBarcode())
                 );
             }
-
             masterData = FXCollections.observableArrayList(productTM);
             tv.getItems().setAll(masterData);
             onSuccess();

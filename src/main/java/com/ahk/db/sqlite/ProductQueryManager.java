@@ -23,7 +23,7 @@ public class ProductQueryManager {
         }
     }
 
-    public Boolean nonQuery(String query) {
+    public Boolean noResponseQuery(String query) {
         boolean success = false;
         try {
             Connection connection = ConnectionProvider.getInstance();
@@ -44,8 +44,6 @@ public class ProductQueryManager {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
-
 
 }

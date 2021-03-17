@@ -33,11 +33,11 @@
 
 
         <!-- Radio Buttons  -->
-        <RadioButton fx:id="searchIdComboB" layoutX="225.0" layoutY="89.0" mnemonicParsing="false" onAction="#searchIdCBClicked" selected="true" text="Search Id" />
+        <RadioButton fx:id="searchIdComboB" layoutX="225.0" layoutY="89.0" mnemonicParsing="false" onAction="#searchIdRBClicked" selected="true" text="Search Id" />
 
-        <RadioButton fx:id="searchNameComboB" layoutX="225.0" layoutY="124.0" mnemonicParsing="false" onAction="#searchNameCBClicked" text="Search Name" />
+        <RadioButton fx:id="searchNameComboB" layoutX="225.0" layoutY="124.0" mnemonicParsing="false" onAction="#searchNameRBClicked" text="Search Name" />
         <!-- Buttons  -->
-        <Button fx:id="searchButton" layoutX="225.0" layoutY="155.0" mnemonicParsing="false" onAction="#searchButtonClicked" text="Search" />
+        <Button fx:id="searchButton" layoutX="225.0" layoutY="155.0" mnemonicParsing="false" onAction="#searchButtonClicked" text="Search"/>
 
         <Button fx:id="cleanButton" layoutX="299.0" layoutY="155.0" mnemonicParsing="false" onAction="#cleanButtonClicked" prefHeight="25.0" prefWidth="51.0" text="Clean" />
 
