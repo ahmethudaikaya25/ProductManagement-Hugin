@@ -1,12 +1,8 @@
 package com.ahk.db.sqlite;
 
-import com.ahk.data.Product;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProductQueryManager {
 
@@ -16,9 +12,10 @@ public class ProductQueryManager {
             Connection connection = ConnectionProvider.getInstance();
             Statement statement = connection.createStatement();
             rs = statement.executeQuery(query);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+            return null;
+        } finally {
             return rs;
         }
     }
@@ -29,19 +26,19 @@ public class ProductQueryManager {
             Connection connection = ConnectionProvider.getInstance();
             Statement statement = connection.createStatement();
             success = statement.execute(query);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             return success;
         }
     }
 
-    public void updateQuery(String query){
+    public void updateQuery(String query) {
         try {
             Connection connection = ConnectionProvider.getInstance();
             Statement statement = connection.createStatement();
             statement.executeUpdate(query);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

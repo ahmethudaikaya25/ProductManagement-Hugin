@@ -11,6 +11,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class CreateReport implements Runnable, AsyncDBAccess {
@@ -34,6 +37,8 @@ public class CreateReport implements Runnable, AsyncDBAccess {
         File file = new File("./report/report.txt");
         try {
             if (!file.exists()) {
+                Path path = Paths.get("./report/");
+                Files.createDirectories(path);
                 file.createNewFile();
             }
             FileWriter fileWriter = new FileWriter(file);

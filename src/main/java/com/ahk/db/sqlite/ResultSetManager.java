@@ -12,8 +12,11 @@ public class ResultSetManager {
         try {
             products = new ArrayList<>();
             while (resultSet.next()) {
-                products.add(new Product().id(resultSet.getInt(1)).name(resultSet.getString(2))
-                        .price(resultSet.getFloat(3)).val(resultSet.getInt(4)).barcode(resultSet.getString(5)));
+                products.add(new Product().id(resultSet.getInt(1))
+                        .name(resultSet.getString(2))
+                        .price(resultSet.getFloat(3))
+                        .val(resultSet.getInt(4))
+                        .barcode(resultSet.getString(5)));
             }
         }catch (Exception e){
             e.printStackTrace();
