@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class SaveCenterController implements Initializable {
     @FXML
-    ComboBox <String> valComboBox;
+    ComboBox<String> valComboBox;
     @FXML
     TextField nameTextF;
     @FXML
@@ -28,10 +28,9 @@ public class SaveCenterController implements Initializable {
     TextArea warningTextArea;
 
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        valComboBox.getItems().addAll("0","1","8","18");
+        valComboBox.getItems().addAll("0", "1", "8", "18");
         priceTextF.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d{0,5}([\\.]\\d{0,2})?")) {
                 priceTextF.setText(oldValue);
@@ -39,42 +38,51 @@ public class SaveCenterController implements Initializable {
             }
         });
         idTextF.textProperty().addListener(((observable, oldValue, newValue) -> {
-            if(!newValue.matches("\\d{0,4}([0-9])?")){
+            if (!newValue.matches("\\d{0,4}([0-9])?")) {
                 idTextF.setText(oldValue);
             }
         }));
         barcodeTextF.textProperty().addListener(((observable, oldValue, newValue) -> {
-            if(!newValue.matches("\\w{0,13}?")){
+            if (!newValue.matches("\\w{0,13}?")) {
                 barcodeTextF.setText(oldValue);
             }
         }));
         nameTextF.textProperty().addListener(((observable, oldValue, newValue) -> {
-            if(!newValue.matches("\\w{0,20}?")){
+            if (!newValue.matches("\\w{0,20}?")) {
                 nameTextF.setText(oldValue);
             }
         }));
     }
 
 
-    public void saveButtonClicked(){
-        if(valComboBox.getSelectionModel().getSelectedItem()==null||nameTextF.getText().equals("")
-                ||idTextF.getText().equals("")||priceTextF.getText().equals("")){
+    public void saveButtonClicked() {
+        if (valComboBox.getSelectionModel().getSelectedItem() == null || nameTextF.getText().equals("")
+                || idTextF.getText().equals("") || priceTextF.getText().equals("")) {
             warningTextArea.setText("Please select item and fill the blanks");
-        }else if(!(barcodeTextF.getText().length()==13||barcodeTextF.getText().length()==0)){
+        } else if (!(barcodeTextF.getText().length() == 13 || barcodeTextF.getText().length() == 0)) {
             warningTextArea.setText("Please set barcode number as 13 character or don't set");
-        }else{
+        } else {
             Product product = new Product();
             product.id(Integer.parseInt(idTextF.getText())).name(nameTextF.getText()).price(Float.parseFloat(priceTextF.getText()))
                     .val(Integer.parseInt(valComboBox.getSelectionModel().getSelectedItem())).barcode(barcodeTextF.getText());
-            Thread thread = new Thread(new SaveProduct(product));
+            Thread thread = new Thread(new SaveProduct(product, this));
             thread.start();
         }
     }
 
-    public void backButtonClicked(){
+    public void backButtonClicked() {
         SetCenter setCenter = new SetCenter();
         Pane pane = setCenter.getPage("base");
         MainController.publicMainBP.setCenter(pane);
+    }
+
+    public void clear() {
+        valComboBox.setValue(null);
+        nameTextF.setText("");
+        idTextF.setText("");
+        priceTextF.setText("");
+        barcodeTextF.setText("");
+        warningTextArea.setText("");
     }
 
 }

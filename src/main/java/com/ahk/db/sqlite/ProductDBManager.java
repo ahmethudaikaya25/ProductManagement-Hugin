@@ -7,13 +7,11 @@ import java.sql.ResultSet;
 import java.util.List;
 
 public class ProductDBManager {
-    public void save(Product product) {
+    public Boolean save(Product product) {
         ProductQueryManager manager = new ProductQueryManager();
         String sql = "insert into products values (" + product.getId() + ",'" + product.getName() + "'," + product.getPrice() + ","
                 + product.getVal() + ",'" + product.getBarcode() + "')";
-        if (manager.noResponseQuery(sql)) {
-            System.out.println("id:" + product.getId() + " saved");
-        }
+        return manager.noResponseQuery(sql);
     }
 
     public void updateWithId(Product product) {

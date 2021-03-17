@@ -25,11 +25,11 @@ public class ProductQueryManager {
         try {
             Connection connection = ConnectionProvider.getInstance();
             Statement statement = connection.createStatement();
-            success = statement.execute(query);
+            statement.execute(query);
+            return true;
+
         } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            return success;
+            return false;
         }
     }
 
