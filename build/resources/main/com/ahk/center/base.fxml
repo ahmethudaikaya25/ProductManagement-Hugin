@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="525.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ahk.ui.controller.BaseCenterController">
+   <children>
+      <Button fx:id="saveProduct" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
+              prefWidth="100.0" text="Save Product" onAction="#saveButtonAction"/>
+      <Button fx:id="updateProduct" layoutX="150.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
+              prefWidth="100.0" text="Update Product" onAction="#updateButtonAction"/>
+      <Button fx:id="reportProduct" layoutX="275.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
+              prefWidth="100.0" text="Report" />
+      <Button fx:id="close" layoutX="400.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0"
+              text="Close" />
+      <TableView layoutX="25.0" layoutY="75.0" prefHeight="300.0" prefWidth="475.0" fx:id="productsTV">
+        <columns>
+            <TableColumn prefWidth="75.0" text="Id" fx:id="productsIdTC"/>
+          <TableColumn prefWidth="75.0" text="Name" fx:id="productsNameTC" />
+          <TableColumn prefWidth="75.0" text="Price" fx:id="productsPriceTC"/>
+            <TableColumn prefWidth="75.0" text="Val" fx:id="productsValTC"/>
+            <TableColumn prefWidth="75.0" text="Barcode" fx:id="productsBarcodeTC"/>
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</Pane>
