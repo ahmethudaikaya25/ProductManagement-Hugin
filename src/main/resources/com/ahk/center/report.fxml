@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ahk.ui.controller.ReportCenterController">
+   <children>
+      <Label layoutX="25.0" layoutY="25.0" text="Report">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="reportTextArea" editable="false" layoutX="25.0" layoutY="85.0" prefHeight="300.0" prefWidth="450.0" />
+      <Button fx:id="backButton" layoutX="500.0" layoutY="85.0" mnemonicParsing="false" prefHeight="25.0"
+              prefWidth="75.0" text="Back" onAction="#backButtonClicked" />
+      <Button fx:id="getReportButton" layoutX="500.0" layoutY="135.0" mnemonicParsing="false" prefWidth="75.0"
+              text="Get Report" onAction="#getReportButtonClicked" />
+   </children>
+</Pane>

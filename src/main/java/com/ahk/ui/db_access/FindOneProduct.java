@@ -3,6 +3,7 @@ package com.ahk.ui.db_access;
 import com.ahk.data.Product;
 import com.ahk.db.sqlite.ProductDBManager;
 import com.ahk.ui.controller.UpdateCenterController;
+import javafx.application.Platform;
 
 public class FindOneProduct implements Runnable {
     private UpdateCenterController controller;
@@ -49,14 +50,14 @@ public class FindOneProduct implements Runnable {
         controller.updateButton.setDisable(false);
         controller.searchButton.setDisable(true);
         controller.priceTextF.setDisable(false);
-        controller.valComboBox.setVisible(false);
         controller.valComboBox.setDisable(false);
-        controller.valComboBox.setVisible(true);
         controller.barcodeTextF.setDisable(false);
         controller.idTextF.setText(String.valueOf(product.getId()));
         controller.nameTextF.setText(product.getName());
         controller.priceTextF.setText(String.valueOf(product.getPrice()));
-        controller.valComboBox.getSelectionModel().select("8");
+        final Integer i = product.getVal();
+        Platform.runLater(()->controller.valComboBox.getSelectionModel()
+                .select(String.valueOf(i)));
         controller.barcodeTextF.setText(product.getBarcode());
     }
 }

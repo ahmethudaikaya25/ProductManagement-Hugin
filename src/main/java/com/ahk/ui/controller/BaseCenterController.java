@@ -38,6 +38,12 @@ public class BaseCenterController implements Initializable {
         MainController.publicMainBP.setCenter(pane);
     }
 
+    public void reportButtonAction(){
+        SetCenter setCenter = new SetCenter();
+        Pane pane = setCenter.getPage("report");
+        MainController.publicMainBP.setCenter(pane);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         productsTV.setVisible(false);

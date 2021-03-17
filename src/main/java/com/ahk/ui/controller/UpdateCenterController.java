@@ -20,7 +20,7 @@ public class UpdateCenterController implements Initializable {
     @FXML
     public ComboBox <String> valComboBox;
     @FXML
-    public RadioButton searchIdComboB,searchNameComboB;
+    public RadioButton searchIdRadioB, searchNameRadioB;
     @FXML
     public Button searchButton,cleanButton,updateButton,backButton;
 
@@ -37,6 +37,13 @@ public class UpdateCenterController implements Initializable {
         valComboBox.setDisable(true);
         valComboBox.setVisible(true);
         updateButton.setDisable(true);
+        if(searchIdRadioB.isSelected()){
+            idTextF.setDisable(false);
+            nameTextF.setDisable(true);
+        }else if(searchNameRadioB.isSelected()) {
+            idTextF.setDisable(true);
+            nameTextF.setDisable(false);
+        }
     }
 
     public void backButtonClicked(){
@@ -46,10 +53,10 @@ public class UpdateCenterController implements Initializable {
     }
 
     public void cleanButtonClicked(){
-        if(searchIdComboB.isSelected()) {
+        if(searchIdRadioB.isSelected()) {
             idTextF.setDisable(false);
             nameTextF.setDisable(true);
-        }else if (searchNameComboB.isSelected()){
+        }else if (searchNameRadioB.isSelected()){
             nameTextF.setDisable(false);
             idTextF.setDisable(true);
         }
@@ -65,11 +72,12 @@ public class UpdateCenterController implements Initializable {
     public void updateButtonClicked(){
         Thread thread = new Thread(new UpdateProduct(this));
         thread.start();
+
     }
 
     public void searchIdRBClicked(){
         clean();
-        searchNameComboB.setSelected(false);
+        searchNameRadioB.setSelected(false);
         idTextF.setDisable(false);
         nameTextF.setDisable(true);
         searchButton.setDisable(false);
@@ -78,7 +86,7 @@ public class UpdateCenterController implements Initializable {
 
     public void searchNameRBClicked(){
         clean();
-        searchIdComboB.setSelected(false);
+        searchIdRadioB.setSelected(false);
         nameTextF.setDisable(false);
         idTextF.setDisable(true);
         searchButton.setDisable(false);

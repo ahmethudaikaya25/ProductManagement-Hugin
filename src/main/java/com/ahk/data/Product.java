@@ -14,13 +14,13 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", val=" + val +
-                ", barcode='" + barcode + '\'' +
-                '}';
+        return "\tProduct :\n\t{\n" +
+                "\t\tid=" + id +
+                ",\n\t\t\t name='" + name + '\'' +
+                ",\n\t\t\t price=" + price +
+                ",\n\t\t\t val=" + val +
+                ",\n\t\t\t barcode='" + barcode + '\'' +
+                "\n\t}";
     }
 
     public int getId() {

@@ -3,6 +3,7 @@ package com.ahk.ui.db_access;
 import com.ahk.data.Product;
 import com.ahk.db.sqlite.ProductDBManager;
 import com.ahk.ui.controller.UpdateCenterController;
+import javafx.application.Platform;
 
 public class UpdateProduct implements Runnable {
     private UpdateCenterController controller;
@@ -22,15 +23,15 @@ public class UpdateProduct implements Runnable {
     public void run() {
         try {
             ProductDBManager dbManager = new ProductDBManager();
-            if (controller.searchIdComboB.isSelected()) {
+            if (controller.searchIdRadioB.isSelected()) {
                 dbManager.updateWithId(product);
-            } else if (controller.searchNameComboB.isSelected()) {
+            } else if (controller.searchNameRadioB.isSelected()) {
                 dbManager.updateWithName(product);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }finally {
-            controller.clean();
+            Platform.runLater(()->controller.clean());
         }
     }
 }

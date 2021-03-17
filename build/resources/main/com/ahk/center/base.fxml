@@ -10,13 +10,13 @@
       prefWidth="525.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.ahk.ui.controller.BaseCenterController">
    <children>
-      <Button fx:id="saveProduct" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
+      <Button fx:id="saveProductButton" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
               prefWidth="100.0" text="Save Product" onAction="#saveButtonAction"/>
-      <Button fx:id="updateProduct" layoutX="150.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
+      <Button fx:id="updateProductButton" layoutX="150.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
               prefWidth="100.0" text="Update Product" onAction="#updateButtonAction"/>
-      <Button fx:id="reportProduct" layoutX="275.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
-              prefWidth="100.0" text="Report" />
-      <Button fx:id="close" layoutX="400.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0"
+      <Button fx:id="reportProductButton" layoutX="275.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
+              prefWidth="100.0" text="Report" onAction="#reportButtonAction" />
+      <Button fx:id="closeButton" layoutX="400.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0"
               text="Close" />
       <TableView layoutX="25.0" layoutY="75.0" prefHeight="300.0" prefWidth="475.0" fx:id="productsTV">
         <columns>
