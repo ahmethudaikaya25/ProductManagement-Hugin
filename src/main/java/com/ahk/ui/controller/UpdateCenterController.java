@@ -1,6 +1,8 @@
 package com.ahk.ui.controller;
 
+import com.ahk.data.Product;
 import com.ahk.ui.db_access.FindOneProduct;
+import com.ahk.ui.db_access.SaveProduct;
 import com.ahk.ui.db_access.UpdateProduct;
 import com.ahk.ui.util.SetCenter;
 import javafx.fxml.FXML;
@@ -37,6 +39,7 @@ public class UpdateCenterController implements Initializable {
         valComboBox.setDisable(true);
         valComboBox.setVisible(true);
         updateButton.setDisable(true);
+        searchButton.setDisable(false);
         if(searchIdRadioB.isSelected()){
             idTextF.setDisable(false);
             nameTextF.setDisable(true);
@@ -65,13 +68,25 @@ public class UpdateCenterController implements Initializable {
     }
 
     public void searchButtonClicked(){
-        Thread thread = new Thread(new FindOneProduct(this));
-        thread.start();
+        if(!idTextF.getText().isEmpty()||!nameTextF.getText().isEmpty()){
+            Thread thread = new Thread(new FindOneProduct(this));
+            thread.start();
+        }else {
+            warningTextArea.setText("Please set value");
+        }
     }
 
     public void updateButtonClicked(){
-        Thread thread = new Thread(new UpdateProduct(this));
-        thread.start();
+        if(valComboBox.getSelectionModel().getSelectedItem()==null||nameTextF.getText().equals("")
+                ||idTextF.getText().equals("")||priceTextF.getText().equals("")){
+            warningTextArea.setText("Please select item and fill the blanks");
+        }else if(!(barcodeTextF.getText().length()==13||barcodeTextF.getText().length()==0)){
+            warningTextArea.setText("Please set barcode number as 13 character or don't set");
+        }else{
+            Thread thread = new Thread(new UpdateProduct(this));
+            thread.start();
+        }
+
 
     }
 

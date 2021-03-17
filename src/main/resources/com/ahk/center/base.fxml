@@ -17,7 +17,7 @@
       <Button fx:id="reportProductButton" layoutX="275.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0"
               prefWidth="100.0" text="Report" onAction="#reportButtonAction" />
       <Button fx:id="closeButton" layoutX="400.0" layoutY="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0"
-              text="Close" />
+              text="Close" onAction="#closeButtonAction" />
       <TableView layoutX="25.0" layoutY="75.0" prefHeight="300.0" prefWidth="475.0" fx:id="productsTV">
         <columns>
             <TableColumn prefWidth="75.0" text="Id" fx:id="productsIdTC"/>

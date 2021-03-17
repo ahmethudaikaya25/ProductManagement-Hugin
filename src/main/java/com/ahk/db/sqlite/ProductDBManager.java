@@ -24,8 +24,8 @@ public class ProductDBManager {
 
     public void updateWithName(Product product) {
         ProductQueryManager manager = new ProductQueryManager();
-        String sql = "update products set id='" + product.getName() + "', price=" + product.getPrice() + ",val="
-                + product.getVal() + ",barcode='" + product.getBarcode() + " where name='" + product.getId()+"'";
+        String sql = "update products set id=" + product.getId() +", price=" + product.getPrice() + ",val="
+                + product.getVal() + ",barcode='" + product.getBarcode() + "' where name='" + product.getName()+"'";
         manager.updateQuery(sql);
     }
 

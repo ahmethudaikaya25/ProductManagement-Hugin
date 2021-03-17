@@ -4,11 +4,14 @@ import com.ahk.data.Product;
 import com.ahk.data.ProductTableModel;
 import com.ahk.db.sqlite.ProductDBManager;
 import com.ahk.ui.controller.BaseCenterController;
+import com.ahk.ui.util.AlertManager;
+import javafx.application.Platform;
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -71,15 +74,16 @@ public class FillProductTable implements Runnable {
             tv.getItems().setAll(masterData);
             onSuccess();
         } catch (Exception e) {
-            onError(e);
+            Platform.runLater(()->onError(e));
         }
     }
 
     public void onSuccess() {
-        tv.setVisible(true);
+
     }
 
     public void onError(Exception e) {
-        e.printStackTrace();
+        new AlertManager().alertType(Alert.AlertType.ERROR).title("Main").header("Table couldn't fill")
+                .message(e.getMessage());
     }
 }

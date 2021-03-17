@@ -57,7 +57,6 @@ public class SaveCenterController implements Initializable {
 
 
     public void saveButtonClicked(){
-        System.out.println(valComboBox.getSelectionModel().getSelectedItem());
         if(valComboBox.getSelectionModel().getSelectedItem()==null||nameTextF.getText().equals("")
                 ||idTextF.getText().equals("")||priceTextF.getText().equals("")){
             warningTextArea.setText("Please select item and fill the blanks");

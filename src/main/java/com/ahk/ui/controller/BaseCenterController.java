@@ -1,18 +1,17 @@
 package com.ahk.ui.controller;
 
-import com.ahk.data.Product;
 import com.ahk.data.ProductTableModel;
 import com.ahk.ui.db_access.FillProductTable;
 import com.ahk.ui.util.SetCenter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class BaseCenterController implements Initializable {
@@ -21,9 +20,11 @@ public class BaseCenterController implements Initializable {
     @FXML
     public TableColumn<ProductTableModel, Integer> productsIdTC, productsValTC;
     @FXML
-    public TableColumn<ProductTableModel,String> productsNameTC, productsBarcodeTC;
+    public TableColumn<ProductTableModel, String> productsNameTC, productsBarcodeTC;
     @FXML
-    public TableColumn<ProductTableModel,Float> productsPriceTC;
+    public TableColumn<ProductTableModel, Float> productsPriceTC;
+    @FXML
+    public Button closeButton;
 
 
     public void saveButtonAction() {
@@ -38,28 +39,22 @@ public class BaseCenterController implements Initializable {
         MainController.publicMainBP.setCenter(pane);
     }
 
-    public void reportButtonAction(){
+    public void reportButtonAction() {
         SetCenter setCenter = new SetCenter();
         Pane pane = setCenter.getPage("report");
         MainController.publicMainBP.setCenter(pane);
     }
 
+    public void closeButtonAction(){
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        productsTV.setVisible(false);
-
-   /*     Thread thread =
-                new Thread(new FillProductTable(
-                        this.productsTV
-                        ,productsIdTC
-                        ,productsValTC
-                        ,productsNameTC
-                        ,productsBarcodeTC
-                        ,productsPriceTC));*/
         Thread thread =
                 new Thread(new FillProductTable(
                         this));
         thread.start();
-
     }
 }

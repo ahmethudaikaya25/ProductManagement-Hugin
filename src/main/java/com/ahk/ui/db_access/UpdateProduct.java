@@ -3,9 +3,11 @@ package com.ahk.ui.db_access;
 import com.ahk.data.Product;
 import com.ahk.db.sqlite.ProductDBManager;
 import com.ahk.ui.controller.UpdateCenterController;
+import com.ahk.ui.util.AlertManager;
 import javafx.application.Platform;
+import javafx.scene.control.Alert;
 
-public class UpdateProduct implements Runnable {
+public class UpdateProduct implements Runnable,AsyncDBAccess {
     private UpdateCenterController controller;
     private Product product;
 
@@ -28,10 +30,22 @@ public class UpdateProduct implements Runnable {
             } else if (controller.searchNameRadioB.isSelected()) {
                 dbManager.updateWithName(product);
             }
+            Platform.runLater(this::onSuccess);
         } catch (Exception e) {
-            e.printStackTrace();
-        }finally {
-            Platform.runLater(()->controller.clean());
+            Platform.runLater(()->onError(e));
+        } finally {
+            Platform.runLater(() -> controller.clean());
         }
+    }
+
+    @Override
+    public void onSuccess() {
+        new AlertManager().title("Update").message("Update success").showInformation();
+    }
+
+    @Override
+    public void onError(Exception e) {
+        new AlertManager().alertType(Alert.AlertType.ERROR).title("Update").header("Update Error")
+                .message(e.getMessage());
     }
 }
