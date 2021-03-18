@@ -1,7 +1,6 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
 group 'com.ahk'
@@ -22,9 +21,6 @@ test{
     useJUnitPlatform()
 }
 
-javafx{
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
-    version='15.0.1'
-}
+
 
 mainClassName = 'com.ahk.ui.starter.Main'
