@@ -8,8 +8,8 @@
 
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.ahk.ui.controller.ReportCenterController">
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.216" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ahk.program.ui.controller.ReportCenterController">
    <children>
       <Label layoutX="25.0" layoutY="25.0" text="Report">
          <font>

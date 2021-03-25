@@ -9,8 +9,8 @@
 <?import javafx.scene.text.Font?>
 
 <Pane fx:id="savePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="366.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.ahk.ui.controller.SaveCenterController">
+      prefHeight="366.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/8.0.216" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ahk.program.ui.controller.SaveCenterController">
     <children>
         <TextField fx:id="nameTextF" layoutX="25.0" layoutY="120.0" prefHeight="25.0" prefWidth="175.0"
                    promptText="Name" />
