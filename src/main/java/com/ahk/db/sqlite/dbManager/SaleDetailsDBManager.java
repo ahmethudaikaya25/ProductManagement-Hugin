@@ -29,17 +29,13 @@ public class SaleDetailsDBManager {
         QueryManager manager = new QueryManager();
         String sql = "";
         List<SaleDetails> saleDetails1 = getWithName(saleDetails.getProductName());
-        Float sum = saleDetails.getAmount()+saleDetails1.get(0).getAmount();
         if (saleDetails1.size()>0) {
+            Float sum = saleDetails.getAmount()+saleDetails1.get(0).getAmount();
             sql = "update saleDetails set amount ="+sum+
                     " where name='"+saleDetails1.get(0).getProductName()+"'";
-
-
         }else {
             ProductDBManager productDBManager = new ProductDBManager();
             Product product=productDBManager.getProductWithName(saleDetails.getProductName());
-
-
             sql = "insert into saleDetails values (" +
                     product.getId() + ",'"
                     + saleDetails.getProductName() + "',"

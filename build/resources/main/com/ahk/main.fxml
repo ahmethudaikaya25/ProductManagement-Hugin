@@ -4,10 +4,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.216" xmlns:fx="http://javafx.com/fxml/1"
-            fx:id="mainBorderPane" fx:controller="com.ahk.program.ui.controller.MainController">
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ahk.program.ui.controller.MainController">
    <top>
       <Label text="Product Management" BorderPane.alignment="CENTER">
          <font>
@@ -15,4 +12,11 @@
          </font>
       </Label>
    </top>
+   <bottom>
+      <Label fx:id="ip_label" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Arial Bold" size="48.0" />
+         </font>
+      </Label>
+   </bottom>
 </BorderPane>

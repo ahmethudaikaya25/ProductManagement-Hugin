@@ -20,9 +20,7 @@ public class SaleDBManager {
             float totalAmountSum = sale.getTotalAmount()+sales.get(0).getTotalAmount();
             float cashPaymentSum = sale.getCashPayment()+sales.get(0).getCashPayment();
             float creditPaymentSum = sale.getCreditPayment()+sales.get(0).getCreditPayment();
-            String tASS = new DecimalFormat("#.0#").format(totalAmountSum);
-            String cpSS = new DecimalFormat("#.0#").format(creditPaymentSum);
-            String caPSS = new DecimalFormat("#.0#").format(cashPaymentSum);
+
 
 
             sql = String.format("update sale set receiptCount="+receiptSum+" , totalAmount="+totalAmountSum+" , cashPayment="+
